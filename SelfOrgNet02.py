@@ -58,6 +58,17 @@ class SelfOrgNet:
         axarr[0].set_title('Output activations')
         axarr[self.n_outputs - 1].set_xlabel('Time')
         plt.show()
+        
+    def learn_weights(self, w, t): # not sure how to think of this
+        dw_oo = (targ[] - self.act_o) * self.act_o
+        dw_oo = np.reshape(dw_oo, (self.n_outputs, self.n_outputs))
+        dw_oi = (targ[] - self.act_o) * self.act_i
+        dw_oi = np.reshape(dw_oi, (self.n_outputs, self.n_inputs))
+        return dw_oo, dw_oi
+        
+    def learn(self):
+        self.w_oo = odeint(self.learn_weights, self.)
+        
 
 
 if __name__ == '__main__':
