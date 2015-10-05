@@ -5,7 +5,7 @@
 # Dynamics:
 # tau_r * dr_i(t) / dt = -r_i + F(input + sum(w_ij * r_j) + bias)
 
-# Still not working quite as desired. Look at lit. on continuous attr. nets
+# Still not working quite as desired, especially when input != central node...
 """
 
 import numpy as np
@@ -26,9 +26,10 @@ def sig(vec):
     return 1 / (1 + np.exp(-vec))
 
 if __name__ == '__main__':
-    nnodes = 50
+    nnodes = 5
     r0 = np.zeros(nnodes)
-    r0[int(nnodes / 2)] = 1.0
+    #r0[int(nnodes / 2)] = 1.0
+    r0[0] = 1.0
     W = np.zeros((nnodes, nnodes))
     vec = np.arange(0, nnodes, 1)
     
